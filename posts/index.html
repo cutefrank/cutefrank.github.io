@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CuteFrank’s Blog </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.48" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.ab4b67a3ea25990fa8279f3b7ef08b61.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+      <link href="https://cutefrank.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="CuteFrank’s Blog" />
+      <link href="https://cutefrank.github.io/posts/index.xml" rel="feed" type="application/rss+xml" title="CuteFrank’s Blog" />
+    
+
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cutefrank.github.io/posts/" />
+<meta property="og:updated_time" content="2018-09-11T16:14:13&#43;08:00"/>
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://cutefrank.github.io/images/gohugo-default-sample-hero-image.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://cutefrank.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      CuteFrank’s Blog
+    </a>
+    <div class="flex-l items-center">
+      
+      
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+  <main class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></main>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-install-sql-server-on-mac/" class="link black dim">
+        How to Install SQL Server on Mac
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在 Mac 上安裝 SQL Server 必要條件  安裝 Docker 硬碟6G Docker 記憶體2G(網路上建議4G以上)  下載和執行容器映像檔 下載映像檔 docker pull microsoft/mssql-server-linux:2017-latest  執行容器 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;' \ -p 1433:1433 --name sql1 \ -d microsoft/mssql-server-linux:2017-latest 附註：EULA 最終用戶授權協定  列出所有容器 docker ps -a  變更 SA 密碼 docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \ -S localhost -U SA -P '&lt;YourStrong!Passw0rd&gt;' \ -Q 'ALTER LOGIN SA WITH PASSWORD=&quot;&lt;YourNewStrong!Passw0rd&gt;&quot;'  連接到 SQL Server 打開 Bash docker exec -it sql1 &quot;bash&quot;  使用 sqlcmd 進行本機連線 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '&lt;YourNewStrong!
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-vscode/" class="link black dim">
+        How to install Visual Studio Code on Mac
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+       在 Mac 上安裝 Visual Studio Code  先去官網下載： https://code.visualstudio.com/
+ 接著打開 zip 檔，把 app 檔放進 Applications 資料夾內
+ 打開 Visual Studio Code，輸入 Command + Shift + P，開啟 command palette，輸入 shell command  輸入 code . 測試是否安裝成功
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/markdown-notes/" class="link black dim">
+        Markdown Notes
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      1. 緣起 Markdown 是由 John Gruber 開發的一種輕量級標記式語言，初始版本於2004年3月19日發表。
+2. 常用功能 2.1 標題(Heading) This is an H1 # This is an H1  This is an H2 ## This is an H2  This is an H3 ### This is an H3  This is an H4 #### This is an H4  This is an H5 ##### This is an H5  This is an H6 ###### This is an H6  2.
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+</article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://cutefrank.github.io/" >
+    &copy; 2018 CuteFrank’s Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

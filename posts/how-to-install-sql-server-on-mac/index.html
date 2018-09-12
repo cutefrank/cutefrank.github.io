@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CuteFrank’s Blog  | How to Install SQL Server on Mac</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.48" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.ab4b67a3ea25990fa8279f3b7ef08b61.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="How to Install SQL Server on Mac" />
+<meta property="og:description" content="在 Mac 上安裝 SQL Server 必要條件  安裝 Docker 硬碟6G Docker 記憶體2G(網路上建議4G以上)  下載和執行容器映像檔 下載映像檔 docker pull microsoft/mssql-server-linux:2017-latest  執行容器 docker run -e &#39;ACCEPT_EULA=Y&#39; -e &#39;SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;&#39; \ -p 1433:1433 --name sql1 \ -d microsoft/mssql-server-linux:2017-latest 附註：EULA 最終用戶授權協定  列出所有容器 docker ps -a  變更 SA 密碼 docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \ -S localhost -U SA -P &#39;&lt;YourStrong!Passw0rd&gt;&#39; \ -Q &#39;ALTER LOGIN SA WITH PASSWORD=&quot;&lt;YourNewStrong!Passw0rd&gt;&quot;&#39;  連接到 SQL Server 打開 Bash docker exec -it sql1 &quot;bash&quot;  使用 sqlcmd 進行本機連線 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P &#39;&lt;YourNewStrong!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cutefrank.github.io/posts/how-to-install-sql-server-on-mac/" /><meta property="article:published_time" content="2018-09-11T16:14:13&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-11T16:14:13&#43;08:00"/>
+<meta itemprop="name" content="How to Install SQL Server on Mac">
+<meta itemprop="description" content="在 Mac 上安裝 SQL Server 必要條件  安裝 Docker 硬碟6G Docker 記憶體2G(網路上建議4G以上)  下載和執行容器映像檔 下載映像檔 docker pull microsoft/mssql-server-linux:2017-latest  執行容器 docker run -e &#39;ACCEPT_EULA=Y&#39; -e &#39;SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;&#39; \ -p 1433:1433 --name sql1 \ -d microsoft/mssql-server-linux:2017-latest 附註：EULA 最終用戶授權協定  列出所有容器 docker ps -a  變更 SA 密碼 docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \ -S localhost -U SA -P &#39;&lt;YourStrong!Passw0rd&gt;&#39; \ -Q &#39;ALTER LOGIN SA WITH PASSWORD=&quot;&lt;YourNewStrong!Passw0rd&gt;&quot;&#39;  連接到 SQL Server 打開 Bash docker exec -it sql1 &quot;bash&quot;  使用 sqlcmd 進行本機連線 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P &#39;&lt;YourNewStrong!">
+
+
+<meta itemprop="datePublished" content="2018-09-11T16:14:13&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-11T16:14:13&#43;08:00" />
+<meta itemprop="wordCount" content="232">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Install SQL Server on Mac"/>
+<meta name="twitter:description" content="在 Mac 上安裝 SQL Server 必要條件  安裝 Docker 硬碟6G Docker 記憶體2G(網路上建議4G以上)  下載和執行容器映像檔 下載映像檔 docker pull microsoft/mssql-server-linux:2017-latest  執行容器 docker run -e &#39;ACCEPT_EULA=Y&#39; -e &#39;SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;&#39; \ -p 1433:1433 --name sql1 \ -d microsoft/mssql-server-linux:2017-latest 附註：EULA 最終用戶授權協定  列出所有容器 docker ps -a  變更 SA 密碼 docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \ -S localhost -U SA -P &#39;&lt;YourStrong!Passw0rd&gt;&#39; \ -Q &#39;ALTER LOGIN SA WITH PASSWORD=&quot;&lt;YourNewStrong!Passw0rd&gt;&quot;&#39;  連接到 SQL Server 打開 Bash docker exec -it sql1 &quot;bash&quot;  使用 sqlcmd 進行本機連線 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P &#39;&lt;YourNewStrong!"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://cutefrank.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      CuteFrank’s Blog
+    </a>
+    <div class="flex-l items-center">
+      
+      
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <article class="flex-l flex-wrap justify-between mw8 center ph3 ph0-l">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">How to Install SQL Server on Mac</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-09-11T16:14:13&#43;08:00">September 11, 2018</time>
+    </header>
+
+    <main class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="在-mac-上安裝-sql-server">在 Mac 上安裝 SQL Server</h1>
+
+<h2 id="必要條件">必要條件</h2>
+
+<ul>
+<li>安裝 Docker</li>
+<li>硬碟6G</li>
+<li>Docker 記憶體2G(網路上建議4G以上)</li>
+</ul>
+
+<h1 id="下載和執行容器映像檔">下載和執行容器映像檔</h1>
+
+<h3 id="下載映像檔">下載映像檔</h3>
+
+<pre><code>docker pull microsoft/mssql-server-linux:2017-latest
+</code></pre>
+
+<h3 id="執行容器">執行容器</h3>
+
+<pre><code>docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;' \
+-p 1433:1433 --name sql1 \
+-d microsoft/mssql-server-linux:2017-latest
+
+附註：EULA 最終用戶授權協定
+</code></pre>
+
+<h3 id="列出所有容器">列出所有容器</h3>
+
+<pre><code>docker ps -a
+</code></pre>
+
+<h1 id="變更-sa-密碼">變更 SA 密碼</h1>
+
+<pre><code>docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
+-S localhost -U SA -P '&lt;YourStrong!Passw0rd&gt;' \
+-Q 'ALTER LOGIN SA WITH PASSWORD=&quot;&lt;YourNewStrong!Passw0rd&gt;&quot;'
+</code></pre>
+
+<h1 id="連接到-sql-server">連接到 SQL Server</h1>
+
+<h3 id="打開-bash">打開 Bash</h3>
+
+<pre><code>docker exec -it sql1 &quot;bash&quot;
+</code></pre>
+
+<h3 id="使用-sqlcmd-進行本機連線">使用 sqlcmd 進行本機連線</h3>
+
+<pre><code>/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '&lt;YourNewStrong!Passw0rd&gt;'
+</code></pre>
+
+<h1 id="建立測試資料庫">建立測試資料庫</h1>
+
+<pre><code>CREATE DATABASE TestDB
+SELECT Name from sys.Databases
+GO
+</code></pre>
+
+<h1 id="新增資料表">新增資料表</h1>
+
+<pre><code>USE TestDB
+CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+GO
+</code></pre>
+
+<h1 id="查詢資料">查詢資料</h1>
+
+<pre><code>SELECT * FROM Inventory WHERE quantity &gt; 152;
+GO
+</code></pre>
+
+<h1 id="離開-sqlcmd-工作階段">離開 sqlcmd 工作階段</h1>
+
+<pre><code>QUIT
+</code></pre>
+
+<h1 id="離開-bash">離開 Bash</h1>
+
+<pre><code>exit
+</code></pre>
+
+<h1 id="容器外連線">容器外連線</h1>
+
+<h3 id="連線">連線</h3>
+
+<pre><code>sqlcmd -S localhost,1433 -U SA -P '&lt;YourNewStrong!Passw0rd&gt;'
+</code></pre>
+
+<h4 id="若尚未安裝-sqlcmd-請依照下面指令安裝-odbc-驅動程式-17-for-sql-server-和-mssql-tools-再執行連線命令">若尚未安裝 sqlcmd，請依照下面指令安裝 [ODBC 驅動程式 17 for SQL Server]和 mssql-tools，再執行連線命令</h4>
+
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+brew install --no-sandbox msodbcsql17 mssql-tools
+YES
+</code></pre>
+
+<h5 id="如果不想打-yes-可改成-accept-eula-y-brew-install-no-sandbox-mssql-tools">如果不想打 YES 可改成 <code>ACCEPT_EULA=y brew install --no-sandbox mssql-tools</code></h5>
+
+<h4 id="若之後要刪除-odbc-驅動程式-17-for-sql-server-記得執行以下指令">若之後要刪除[ODBC 驅動程式 17 for SQL Server]，記得執行以下指令：</h4>
+
+<pre><code>odbcinst -u -d -n &quot;ODBC Driver 17 for SQL Server&quot;
+</code></pre>
+
+<h1 id="刪除容器">刪除容器</h1>
+
+<pre><code>sudo docker stop sql1
+sudo docker rm sql1
+</code></pre>
+
+<h1 id="參考文獻">參考文獻</h1>
+
+<ol>
+<li><a href="https://docs.microsoft.com/zh-tw/sql/linux/quickstart-install-connect-docker?view=sql-server-2017">快速入門： 使用 Docker 執行 SQL Server 2017 容器映像</a><br /></li>
+<li><a href="https://docs.microsoft.com/zh-tw/sql/linux/sql-server-linux-setup?view=sql-server-2017#system">在 Linux 上的 SQL Server 的安裝指引</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017">在 Linux 及 macOS 上安裝 Microsoft ODBC Driver for SQL Server</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/sql/tools/sqlcmd-utility?view=sql-server-2017">sqlcmd 公用程式</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/sql/connect/odbc/linux-mac/connecting-with-sqlcmd?view=sql-server-2017">使用 sqlcmd 連接</a></li>
+<li><a href="https://dbeaver.io">DBeaver-有GUI的資料庫管理工具</a></li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "cutefrank" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </main>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://cutefrank.github.io/" >
+    &copy; 2018 CuteFrank’s Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

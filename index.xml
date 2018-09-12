@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CuteFrank’s Blog</title>
+    <link>https://cutefrank.github.io/</link>
+    <description>Recent content on CuteFrank’s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 11 Sep 2018 16:14:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://cutefrank.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Install SQL Server on Mac</title>
+      <link>https://cutefrank.github.io/posts/how-to-install-sql-server-on-mac/</link>
+      <pubDate>Tue, 11 Sep 2018 16:14:13 +0800</pubDate>
+      
+      <guid>https://cutefrank.github.io/posts/how-to-install-sql-server-on-mac/</guid>
+      <description>在 Mac 上安裝 SQL Server 必要條件  安裝 Docker 硬碟6G Docker 記憶體2G(網路上建議4G以上)  下載和執行容器映像檔 下載映像檔 docker pull microsoft/mssql-server-linux:2017-latest  執行容器 docker run -e &#39;ACCEPT_EULA=Y&#39; -e &#39;SA_PASSWORD=&amp;lt;YourStrong!Passw0rd&amp;gt;&#39; \ -p 1433:1433 --name sql1 \ -d microsoft/mssql-server-linux:2017-latest 附註：EULA 最終用戶授權協定  列出所有容器 docker ps -a  變更 SA 密碼 docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \ -S localhost -U SA -P &#39;&amp;lt;YourStrong!Passw0rd&amp;gt;&#39; \ -Q &#39;ALTER LOGIN SA WITH PASSWORD=&amp;quot;&amp;lt;YourNewStrong!Passw0rd&amp;gt;&amp;quot;&#39;  連接到 SQL Server 打開 Bash docker exec -it sql1 &amp;quot;bash&amp;quot;  使用 sqlcmd 進行本機連線 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P &#39;&amp;lt;YourNewStrong!</description>
+    </item>
+    
+    <item>
+      <title>How to install Visual Studio Code on Mac</title>
+      <link>https://cutefrank.github.io/posts/install-vscode/</link>
+      <pubDate>Mon, 10 Sep 2018 21:43:28 +0800</pubDate>
+      
+      <guid>https://cutefrank.github.io/posts/install-vscode/</guid>
+      <description> 在 Mac 上安裝 Visual Studio Code  先去官網下載： https://code.visualstudio.com/
+ 接著打開 zip 檔，把 app 檔放進 Applications 資料夾內
+ 打開 Visual Studio Code，輸入 Command + Shift + P，開啟 command palette，輸入 shell command  輸入 code . 測試是否安裝成功
+  </description>
+    </item>
+    
+    <item>
+      <title>Markdown Notes</title>
+      <link>https://cutefrank.github.io/posts/markdown-notes/</link>
+      <pubDate>Fri, 07 Sep 2018 21:16:15 +0800</pubDate>
+      
+      <guid>https://cutefrank.github.io/posts/markdown-notes/</guid>
+      <description>1. 緣起 Markdown 是由 John Gruber 開發的一種輕量級標記式語言，初始版本於2004年3月19日發表。
+2. 常用功能 2.1 標題(Heading) This is an H1 # This is an H1  This is an H2 ## This is an H2  This is an H3 ### This is an H3  This is an H4 #### This is an H4  This is an H5 ##### This is an H5  This is an H6 ###### This is an H6  2.</description>
+    </item>
+    
+  </channel>
+</rss>
